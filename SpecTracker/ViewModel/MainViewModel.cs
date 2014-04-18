@@ -1,4 +1,7 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using SpecTracker.Model;
+using System.Collections.ObjectModel;
 
 namespace SpecTracker.ViewModel
 {
@@ -16,11 +19,23 @@ namespace SpecTracker.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private ObservableCollection<Project> _projects;
+
+        public ObservableCollection<Project> Projects
+        {
+            get { return _projects; }
+            set { Set(() => Projects, ref _projects, value); }
+        }
+
+        public RelayCommand CreateProject { get; private set; }
+        public RelayCommand RemoveProject { get; private set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
+            Projects = new ObservableCollection<Project>();
             ////if (IsInDesignMode)
             ////{
             ////    // Code runs in Blend --> create design time data.
@@ -29,6 +44,8 @@ namespace SpecTracker.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+
+
         }
     }
 }

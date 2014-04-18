@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>propdpc</Title>
+      <Author>Nagy Sándor</Author>
+      <Description>Dependency Property with Callback
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>propdpc</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>defaultValue</ID>
+          <ToolTip>Default Value</ToolTip>
+          <Default>null</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>property</ID>
+          <ToolTip>property</ToolTip>
+          <Default>MyProperty</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <ToolTip>type</ToolTip>
+          <Default>int</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>objType</ID>
+          <ToolTip>Owner Type</ToolTip>
+          <Default>OwnerClass</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+<![CDATA[public $type$ $property$
+{
+    get { return ($type$)GetValue($property$Property); }
+    set { SetValue($property$Property, value); }
+}
+
+public static readonly DependencyProperty $property$Property =
+    DependencyProperty.Register("$property$", typeof($type$),
+        typeof($objType$), new PropertyMetadata($defaultValue$,
+        (d, e) => (d as $objType$).$property$Refreshed(e.OldValue as $type$, e.NewValue as $type$)));
+
+private void $property$Refreshed($type$ oldValue, $type$ newValue)
+{
+    $end$ 
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

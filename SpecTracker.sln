@@ -4,6 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecTracker", "SpecTracker\SpecTracker.csproj", "{6BE32E9D-C036-4888-953D-43BE7477662C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{54A1832A-ADFD-4860-AF93-D439331777D4}"
+	ProjectSection(SolutionItems) = preProject
+		Snippets\propa.snippet = Snippets\propa.snippet
+		Snippets\propdp.snippet = Snippets\propdp.snippet
+		Snippets\propdpc.snippet = Snippets\propdpc.snippet
+		Snippets\propfulln.snippet = Snippets\propfulln.snippet
+		Snippets\propps.snippet = Snippets\propps.snippet
+		Snippets\proppsfulln.snippet = Snippets\proppsfulln.snippet
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D04D048E-1161-4EB9-950E-B4B4C4259F0E}"
 	ProjectSection(SolutionItems) = preProject

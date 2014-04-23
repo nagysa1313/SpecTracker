@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D04D04
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecTracker.WPF", "SpecTracker.WPF\SpecTracker.WPF.csproj", "{F03E3130-0CB9-4FF0-A900-F21334319FAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecTracker.Core", "SpecTracker.Core\SpecTracker.Core.csproj", "{BD626588-5F56-43C3-A328-744ABBE91347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,16 @@ Global
 		{F03E3130-0CB9-4FF0-A900-F21334319FAF}.Release|ARM.ActiveCfg = Release|Any CPU
 		{F03E3130-0CB9-4FF0-A900-F21334319FAF}.Release|x64.ActiveCfg = Release|Any CPU
 		{F03E3130-0CB9-4FF0-A900-F21334319FAF}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Release|x64.ActiveCfg = Release|Any CPU
+		{BD626588-5F56-43C3-A328-744ABBE91347}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

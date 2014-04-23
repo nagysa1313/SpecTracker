@@ -14,6 +14,10 @@ namespace SpecTracker.Core.BLL
     /// </summary>
     public class ProjectRepository : XmlRepository<Project>
     {
-        
+        public ProjectRepository()
+            : base("data")
+        {
+
+        }
     }
 }

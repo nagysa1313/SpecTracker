@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="51ee2c7f-e1d3-4359-9d68-9c9badd93730" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="c0db1b57-19e2-4144-8ffb-ee6f854cdf80" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5e75d38d-3cbe-4ec6-967f-0caf451b0d35" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="068d1328-1c5c-4cd0-9f4d-4e0caa234274" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/?xsd=xsd2" />
+    <MetadataFile FileName="ProjectService.wsdl" MetadataType="Wsdl" ID="899041b9-7f34-4a19-b05e-23e6a087f7d7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="d6a699e3-4290-406f-bc9d-cf4bad835891" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

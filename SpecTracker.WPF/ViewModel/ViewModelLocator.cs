@@ -43,6 +43,7 @@ namespace SpecTracker.WPF.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ProjectListViewModel>();
         }
 
         public MainViewModel Main
@@ -50,6 +51,14 @@ namespace SpecTracker.WPF.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public ProjectListViewModel ProjectList
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProjectListViewModel>();
             }
         }
         

@@ -33,13 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpRepository.InMemoryRepository">
-      <HintPath>..\packages\SharpRepository.InMemoryRepository.1.4.0.0\lib\net40\SharpRepository.InMemoryRepository.dll</HintPath>
+    <Reference Include="SharpRepository.Repository, Version=1.3.6.15, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharpRepository.Repository.1.3.6.15\lib\net40\SharpRepository.Repository.dll</HintPath>
     </Reference>
-    <Reference Include="SharpRepository.Repository">
-      <HintPath>..\packages\SharpRepository.Repository.1.4.6.0\lib\net40\SharpRepository.Repository.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpRepository.XmlRepository">
+    <Reference Include="SharpRepository.XmlRepository, Version=1.3.5.18, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SharpRepository.XmlRepository.1.3.5.18-unstable\lib\net40\SharpRepository.XmlRepository.dll</HintPath>
     </Reference>
     <Reference Include="System" />

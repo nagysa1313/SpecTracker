@@ -1,4 +1,5 @@
 ﻿using SharpRepository.Repository;
+using SpecTracker.Core.BLL;
 using SpecTracker.Core.DAL;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ using System.Text;
 namespace SpecTracker.Core.Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ProjectService" in both code and config file together.
+    [ServiceBehavior(IncludeExceptionDetailInFaults=true)]
     public class ProjectService : IProjectService
     {
         IRepository<Project, int> projectRepository;
 
         public ProjectService()
         {
-            projectRepository = RepositoryFactory.GetInstance<Project>();
+            projectRepository = new ProjectRepository();
         }
 
         public IEnumerable<Project> ListProjects()
@@ -44,7 +46,7 @@ namespace SpecTracker.Core.Service
                 var storedProj = projectRepository.Get(project.ID);
                 if (storedProj.Updated <= project.Updated)
                     projectRepository.Update(project);
-                else throw new InvalidOperationException("Someone changed your object while you edited you copy! Refresh, solve the conflicts at your side and try again!");
+                else throw new FaultException("Someone changed your object while you edited you copy! Refresh, solve the conflicts at your side and try again!");
             }
             else projectRepository.Add(project);
 
@@ -58,9 +60,9 @@ namespace SpecTracker.Core.Service
             {
                 // concurrency check
                 var storedProj = projectRepository.Get(project.ID);
-                if (storedProj.Updated <= project.Updated)
+                if (storedProj.Updated == project.Updated)
                     projectRepository.Delete(project);
-                else throw new InvalidOperationException("Someone changed your object while you edited you copy! Refresh, solve the conflicts at your side and try again!");
+                else throw new FaultException("Someone changed your object while you edited you copy! Refresh, solve the conflicts at your side and try again!");
 
                 return true;
             }

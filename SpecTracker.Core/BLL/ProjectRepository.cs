@@ -1,5 +1,4 @@
-﻿using SharpRepository.InMemoryRepository;
-using SharpRepository.XmlRepository;
+﻿using SharpRepository.XmlRepository;
 using SpecTracker.Core.DAL;
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,22 @@ namespace SpecTracker.Core.BLL
             : base("data")
         {
 
+        }
+
+        protected override void AddItem(Project entity)
+        {
+            entity.Created = DateTime.Now;
+
+            base.AddItem(entity);
+        }
+
+        protected override void UpdateItem(Project entity)
+        {
+            var oldEntity = this.Get(entity.ID);
+            entity.Created = oldEntity.Created;
+            entity.Updated = DateTime.Now;
+
+            base.UpdateItem(entity);
         }
     }
 }

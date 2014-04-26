@@ -9,138 +9,35 @@
 //------------------------------------------------------------------------------
 
 namespace SpecTracker.WPF.ProjectService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Project", Namespace="http://schemas.datacontract.org/2004/07/SpecTracker.Core.DAL")]
-    [System.SerializableAttribute()]
-    public partial class Project : SpecTracker.WPF.ProjectService.AuditableObject {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuditableObject", Namespace="http://schemas.datacontract.org/2004/07/SpecTracker.Core.DAL")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SpecTracker.WPF.ProjectService.Project))]
-    public partial class AuditableObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime UpdatedField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Created {
-            get {
-                return this.CreatedField;
-            }
-            set {
-                if ((this.CreatedField.Equals(value) != true)) {
-                    this.CreatedField = value;
-                    this.RaisePropertyChanged("Created");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Updated {
-            get {
-                return this.UpdatedField;
-            }
-            set {
-                if ((this.UpdatedField.Equals(value) != true)) {
-                    this.UpdatedField = value;
-                    this.RaisePropertyChanged("Updated");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProjectService.IProjectService")]
     public interface IProjectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/ListProjects", ReplyAction="http://tempuri.org/IProjectService/ListProjectsResponse")]
-        SpecTracker.WPF.ProjectService.Project[] ListProjects();
+        SpecTracker.Core.DAL.Project[] ListProjects();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/ListProjects", ReplyAction="http://tempuri.org/IProjectService/ListProjectsResponse")]
-        System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project[]> ListProjectsAsync();
+        System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project[]> ListProjectsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/LoadProject", ReplyAction="http://tempuri.org/IProjectService/LoadProjectResponse")]
-        SpecTracker.WPF.ProjectService.Project LoadProject(int id);
+        SpecTracker.Core.DAL.Project LoadProject(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/LoadProject", ReplyAction="http://tempuri.org/IProjectService/LoadProjectResponse")]
-        System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project> LoadProjectAsync(int id);
+        System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project> LoadProjectAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/SaveProject", ReplyAction="http://tempuri.org/IProjectService/SaveProjectResponse")]
-        SpecTracker.WPF.ProjectService.Project SaveProject(SpecTracker.WPF.ProjectService.Project project);
+        SpecTracker.Core.DAL.Project SaveProject(SpecTracker.Core.DAL.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/SaveProject", ReplyAction="http://tempuri.org/IProjectService/SaveProjectResponse")]
-        System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project> SaveProjectAsync(SpecTracker.WPF.ProjectService.Project project);
+        System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project> SaveProjectAsync(SpecTracker.Core.DAL.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/RemoveProject", ReplyAction="http://tempuri.org/IProjectService/RemoveProjectResponse")]
-        bool RemoveProject(SpecTracker.WPF.ProjectService.Project project);
+        bool RemoveProject(SpecTracker.Core.DAL.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/RemoveProject", ReplyAction="http://tempuri.org/IProjectService/RemoveProjectResponse")]
-        System.Threading.Tasks.Task<bool> RemoveProjectAsync(SpecTracker.WPF.ProjectService.Project project);
+        System.Threading.Tasks.Task<bool> RemoveProjectAsync(SpecTracker.Core.DAL.Project project);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -170,35 +67,35 @@ namespace SpecTracker.WPF.ProjectService {
                 base(binding, remoteAddress) {
         }
         
-        public SpecTracker.WPF.ProjectService.Project[] ListProjects() {
+        public SpecTracker.Core.DAL.Project[] ListProjects() {
             return base.Channel.ListProjects();
         }
         
-        public System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project[]> ListProjectsAsync() {
+        public System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project[]> ListProjectsAsync() {
             return base.Channel.ListProjectsAsync();
         }
         
-        public SpecTracker.WPF.ProjectService.Project LoadProject(int id) {
+        public SpecTracker.Core.DAL.Project LoadProject(int id) {
             return base.Channel.LoadProject(id);
         }
         
-        public System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project> LoadProjectAsync(int id) {
+        public System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project> LoadProjectAsync(int id) {
             return base.Channel.LoadProjectAsync(id);
         }
         
-        public SpecTracker.WPF.ProjectService.Project SaveProject(SpecTracker.WPF.ProjectService.Project project) {
+        public SpecTracker.Core.DAL.Project SaveProject(SpecTracker.Core.DAL.Project project) {
             return base.Channel.SaveProject(project);
         }
         
-        public System.Threading.Tasks.Task<SpecTracker.WPF.ProjectService.Project> SaveProjectAsync(SpecTracker.WPF.ProjectService.Project project) {
+        public System.Threading.Tasks.Task<SpecTracker.Core.DAL.Project> SaveProjectAsync(SpecTracker.Core.DAL.Project project) {
             return base.Channel.SaveProjectAsync(project);
         }
         
-        public bool RemoveProject(SpecTracker.WPF.ProjectService.Project project) {
+        public bool RemoveProject(SpecTracker.Core.DAL.Project project) {
             return base.Channel.RemoveProject(project);
         }
         
-        public System.Threading.Tasks.Task<bool> RemoveProjectAsync(SpecTracker.WPF.ProjectService.Project project) {
+        public System.Threading.Tasks.Task<bool> RemoveProjectAsync(SpecTracker.Core.DAL.Project project) {
             return base.Channel.RemoveProjectAsync(project);
         }
     }

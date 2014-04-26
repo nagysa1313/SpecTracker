@@ -4,10 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	  Title="ModeSelectionPage">
 
+    <Page.Resources>
+        <sys:Boolean x:Key="True">True</sys:Boolean>
+        <sys:Boolean x:Key="False">False</sys:Boolean>
+    </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -24,9 +30,11 @@
         </Grid.RowDefinitions>
         
         <Button Grid.Column="1" Grid.Row="1" Content="Standalone"
-                Command="{Binding InitStandalone}" />
+                Command="{Binding InitConnection}"
+                CommandParameter="{StaticResource True}" />
 
         <Button Grid.Column="3" Grid.Row="1" Content="Connected"
-                Command="{Binding InitConnected}" />
+                Command="{Binding InitConnected}"
+                CommandParameter="{StaticResource False}" />
     </Grid>
 </Page>

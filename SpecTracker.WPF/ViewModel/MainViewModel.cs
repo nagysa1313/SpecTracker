@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Windows;
 using SpecTracker.WPF;
 using System.Threading.Tasks;
+using SpecTracker.WPF.Utils;
 
 namespace SpecTracker.WPF.ViewModel
 {
@@ -24,15 +25,9 @@ namespace SpecTracker.WPF.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private ServiceHost serviceHost;
-        private ProjectServiceClient serviceClient;
+        public bool IsConnected { get { return ServiceClientFactory.IsConnected; } }
 
-        public bool Standalone { get { return serviceHost == null; } }
-        public ProjectServiceClient ServiceClient { get { return serviceClient; } }
-        public bool IsConnected { get { return serviceClient != null && serviceClient.State == CommunicationState.Opened; } }
-
-        public RelayCommand InitStandalone { get; private set; }
-        public RelayCommand InitConnected { get; private set; }
+        public RelayCommand<bool> InitConnection { get; private set; }
 
         private bool _isConnecting;
 
@@ -42,35 +37,14 @@ namespace SpecTracker.WPF.ViewModel
             set
             {
                 Set(() => IsConnecting, ref _isConnecting, value);
-                InitStandalone.RaiseCanExecuteChanged();
-                InitConnected.RaiseCanExecuteChanged();
+                InitConnection.RaiseCanExecuteChanged();
             }
         }
 
         private void RaiseConnectionStateChange()
         {
-            RaisePropertyChanged(() => Standalone);
-            RaisePropertyChanged(() => ServiceClient);
             RaisePropertyChanged(() => IsConnected);
-            InitStandalone.RaiseCanExecuteChanged();
-            InitConnected.RaiseCanExecuteChanged();
-        }
-
-        private void CloseAllConnection()
-        {
-            if (serviceClient != null)
-            {
-                serviceClient.Close();
-
-                serviceClient = null;
-            }
-
-            if (serviceHost != null)
-            {
-                serviceHost.Close();
-
-                serviceHost = null;
-            }
+            InitConnection.RaiseCanExecuteChanged();
         }
 
         /// <summary>
@@ -78,23 +52,17 @@ namespace SpecTracker.WPF.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            InitStandalone = new RelayCommand(() =>
+            InitConnection = new RelayCommand<bool>((standalone) =>
                 {
                     IsConnecting = true;
 
                     Task.Factory.StartNew(() =>
                         {
-                            CloseAllConnection();
+                            ServiceClientFactory.CloseAllConnection();
 
-                            var localUri = new Uri("http://localhost:8733/Design_Time_Addresses/SpecTracker.Core.Service/ProjectService/");
+                            ServiceClientFactory.Standalone = standalone;
 
-                            serviceHost = new ServiceHost(typeof(SpecTracker.Core.Service.ProjectService), localUri);
-
-                            serviceHost.Open();
-
-                            serviceClient = new ProjectServiceClient(new BasicHttpBinding(), new EndpointAddress(localUri));
-
-                            serviceClient.Open();
+                            ServiceClientFactory.CreateConnection();
 
                             RaiseConnectionStateChange();
                         }).ContinueWith(task =>
@@ -102,27 +70,7 @@ namespace SpecTracker.WPF.ViewModel
                                 IsConnecting = false;
                                 App.Current.Dispatcher.Invoke(() => InitApplication());
                             });
-                }, () => !IsConnecting && !IsConnected);
-
-            InitConnected = new RelayCommand(() =>
-                {
-                    IsConnecting = true;
-
-                    Task.Factory.StartNew(() =>
-                        {
-                            CloseAllConnection();
-
-                            serviceClient = new ProjectServiceClient();
-
-                            serviceClient.Open();
-
-                            RaiseConnectionStateChange();
-                        }).ContinueWith(task =>
-                            {
-                                IsConnecting = false;
-                                App.Current.Dispatcher.Invoke(() => InitApplication());
-                            });
-                }, () => !IsConnecting && !IsConnected);
+                }, (standalone) => !IsConnecting && !IsConnected);
         }
 
         private void InitApplication()

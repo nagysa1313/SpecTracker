@@ -13,5 +13,6 @@ namespace SpecTracker.WPF
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

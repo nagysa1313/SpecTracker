@@ -3,17 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="MainWindow" Height="350" Width="525"
-                  ContentSource="Pages/ModeSelectionPage.xaml">
+        ContentSource="Pages/ModeSelectionPage.xaml"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
     
-    <!--<mui:ModernWindow.MenuLinkGroups>
-        <mui:LinkGroup DisplayName="group 1" >
-            <mui:LinkGroup.Links>
-                <mui:Link DisplayName="link 1" />
-                <mui:Link DisplayName="link 2" />
-                <mui:Link DisplayName="link 3" />
-            </mui:LinkGroup.Links>
-        </mui:LinkGroup>
-    </mui:ModernWindow.MenuLinkGroups>-->
     
     
 </mui:ModernWindow>

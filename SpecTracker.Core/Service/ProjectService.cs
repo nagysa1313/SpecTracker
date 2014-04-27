@@ -29,7 +29,8 @@ namespace SpecTracker.Core.Service
                             ID = s.ID,
                             Name = s.Name,
                             Created = s.Created,
-                            Updated = s.Updated
+                            Updated = s.Updated,
+                            Description = s.Description
                         }); // to block later complex objects from downloading to clients
         }
 

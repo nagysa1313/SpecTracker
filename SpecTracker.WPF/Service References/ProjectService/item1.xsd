@@ -10,8 +10,10 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:AuditableObject">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ID" type="xs:int" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecificationItems" nillable="true" type="tns:ArrayOfSpecificationItem" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -24,4 +26,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AuditableObject" nillable="true" type="tns:AuditableObject" />
+  <xs:complexType name="ArrayOfSpecificationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecificationItem" nillable="true" type="tns:SpecificationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpecificationItem" nillable="true" type="tns:ArrayOfSpecificationItem" />
+  <xs:complexType name="SpecificationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AuditableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Priority" type="xs:int" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SpecificationItem" nillable="true" type="tns:SpecificationItem" />
 </xs:schema>

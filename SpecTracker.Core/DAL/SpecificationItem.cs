@@ -1,5 +1,4 @@
-﻿using SharpRepository.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,19 +8,21 @@ using System.Threading.Tasks;
 namespace SpecTracker.Core.DAL
 {
     [DataContract]
-    public class Project : AuditableObject
+    public class SpecificationItem : AuditableObject
     {
-        [RepositoryPrimaryKey]
         [DataMember]
         public int ID { get; set; }
 
         [DataMember]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         [DataMember]
         public string Description { get; set; }
 
         [DataMember]
-        public ICollection<SpecificationItem> SpecificationItems { get; set; }
+        public string Code { get; set; }
+
+        [DataMember]
+        public int Priority { get; set; }
     }
 }
